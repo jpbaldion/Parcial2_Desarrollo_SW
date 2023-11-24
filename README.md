@@ -1,5 +1,7 @@
 # Parcial2DSW
 
+## Juan Pablo Baldion Castillo - 202214765
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
 
 ## Development server
