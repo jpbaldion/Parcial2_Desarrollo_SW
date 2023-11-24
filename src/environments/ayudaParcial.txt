@@ -1,0 +1,93 @@
+Tutorial Listar
+https://misovirtual.virtual.uniandes.edu.co/codelabs/MISW4104_202212_AngularListarBooks/index.html
+Tutorial Detalle
+https://misovirtual.virtual.uniandes.edu.co/codelabs/MISW4104_202212_VT13_AngularMaestroDetalleBooks/index.html
+
+
+
+
+--------- Pasos para Listar
+Crear el modulo
+Crear un componente de listar
+Borrar los archivos innesesarios y modificar el modulo para que no genere error
+
+Poner el nuevo componente en el html de la app
+Probar la union
+
+Crear la clase
+Crear el html de la lista
+Crear el servicio
+Terminar de ajustar el componente
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                    </tr>
+                </tbody>
+                </table>
+
+Probar
+
+Sacar promedios
+seasonsAverage: number = 0;
+getSeries(): void{
+    this.serieService.getSeries().subscribe((series) => {
+      this.series = series;
+      let totalSeasons = 0;
+      series.forEach((serie) => totalSeasons = totalSeasons + serie.seasons);
+      this.seasonsAverage = totalSeasons/series.length;
+    })
+  }
+
+---------------- Pasos para el Detalle
+
+Crear un nuevo componente para el Detalle
+Agregar la declaracion del nuevo componente de detalle en el modulo
+Agregar el atributo @Input en el componente del Detail
+Agregar el las siguientes declaraciones en el listar componente
+            selectedBook!: Book;
+            selected = false;
+            ...
+
+            onSelected(book: Book): void {
+                this.selected = true;
+                this.selectedBook = book;
+            }
+Agregar en el html del listar el *ngIf="selected" y el atributo que pasa la serie
+Agregar el click (click)="onSelected(book)" en el componente que queramos
+Realizar el html de la tarjeta
+
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+probar
+
+
+

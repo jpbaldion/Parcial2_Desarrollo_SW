@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col" *ngFor="let dino of dinosaurios">
+      <div class="card" style="width: 18rem;" >
+        <img src="{{dino.image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{dino.name}}</h5>
+            <p class="card-text">{{dino.scientificName}}</p>
+            <p class="card-text">{{dino.shortDescription}}</p>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
