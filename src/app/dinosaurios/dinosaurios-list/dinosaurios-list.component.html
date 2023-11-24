@@ -13,20 +13,31 @@
     </div>
   </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col" *ngFor="let dino of dinosaurios">
-      <div class="card" (click)="onSelected(dino)" >
-        <img src="{{dino.image}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{dino.name}}</h5>
-            <p class="card-text">{{dino.scientificName}}</p>
-            <p class="card-text">{{dino.shortDescription}}</p>
+<div class="container mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="container">
+          <div class="row">
+            <div class="col-6" *ngFor="let dino of dinosaurios">
+              <div class="card mt-3" (click)="onSelected(dino)" style="height: 500px;">
+                <img src="{{dino.image}}" class="card-img-top" alt="..." style="height: 50%; object-fit: contain;">
+                <div class="card-body" style="height: 50%;">
+                    <h5 class="card-title">{{dino.name}}</h5>
+                    <p class="card-text">{{dino.scientificName}}</p>
+                    <p class="card-text">{{dino.shortDescription}}</p>
+                </div>
+            </div>
+            </div>
         </div>
+        </div>
+      </div>
+      <div class="col-6" *ngIf="selected">
+          <app-dinosaurios-detail [dinoDetail]="selectedDino"></app-dinosaurios-detail>
+      </div>
+      </div>
     </div>
-    </div>
-    <div class="col" *ngIf="selected">
-      <app-dinosaurios-detail [dinoDetail]="selectedDino"></app-dinosaurios-detail>
-    </div>
-  </div>
+    
+  
+  
 </div>
